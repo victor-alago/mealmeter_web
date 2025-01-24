@@ -1,5 +1,6 @@
 import React from 'react';
-import '../assets/css/NavbarLanding.css'; // Make sure the path matches your project structure
+import { Link } from 'react-router-dom';
+import '../assets/css/NavbarLanding.css';
 
 const NavbarLanding = () => {
   return (
@@ -10,7 +11,7 @@ const NavbarLanding = () => {
         <li>Pricing</li>
         <li>Contact us</li>
       </ul>
-      <button className="button">Get Started</button>
+      <Link to="/login" className="button">Get Started</Link>
     </nav>
   );
 };
