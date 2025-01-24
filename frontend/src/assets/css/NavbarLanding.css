@@ -38,17 +38,21 @@
   }
   
   .button {
-    background-color: #D6FF95; /* Vibrant green background */
+    background-color: #2fd9ff; /* Vibrant green background */
     color: #000000;
     border: none;
     border-radius: 15px; /* Rounded corners for the button */
     padding: 10px 20px;
     cursor: pointer;
     font-size: 18px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the button for 3D effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    font-weight: 600;
   }
   
   .button:hover {
-    background-color: #c6f67a; /* Darker shade on hover */
+    background-color: #13d2fd; /* Darker shade on hover */
+    color: white
+    
   }
   

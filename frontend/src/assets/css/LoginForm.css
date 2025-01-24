@@ -1,0 +1,19 @@
+.cascading-right {
+    margin-right: -50px;
+  }
+  
+  @media (max-width: 900px) {
+    .cascading-right {
+      margin-right: 0;
+    }
+  }
+
+  /* LoginForm.css - Control image height and fitting */
+.login-image {
+    height: 300px;  /* Set a fixed height or max-height as per your design needs */
+    object-fit: cover; /* This will ensure the image covers the area without distorting */
+    width: 100%; /* Maintains full width */
+    border-radius: 6px; /* Assuming you want rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Shadow for some depth */
+  }
+  

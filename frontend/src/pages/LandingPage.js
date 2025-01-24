@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavbarLanding from '../components/NavbarLanding';
 import '../assets/css/LandingPage.css';
 
 const LandingPage = () => {
+  useEffect(() => {
+    // Apply the body styles on component mount
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+    document.body.style.background = 'linear-gradient(to bottom, #dddddd 100%, #FFFFFF 100%)';
+    document.body.style.fontFamily = "'Jura', sans-serif";
+
+    // Cleanup the styles on component unmount
+    return () => {
+      document.body.style.margin = '';
+      document.body.style.padding = '';
+      document.body.style.background = '';
+      document.body.style.fontFamily = '';
+    };
+  }, []);
+
     return (
       <div className="landing-page">
         <NavbarLanding />
