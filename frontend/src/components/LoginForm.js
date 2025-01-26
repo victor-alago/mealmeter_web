@@ -31,7 +31,12 @@ function LoginForm() {
         password
       });
       console.log(response.data); // Use this data to manage user session
-      navigate('/dashboard'); // Navigate to another route upon successful login
+
+      // Store the token in localStorage
+      localStorage.setItem('token', response.data.id_token);
+
+      // Navigate to the dashboard after successful login and token storage
+      navigate('/dashboard'); 
       setMessage('Login successful');
       setMessageType('success');
     } catch (error) {
