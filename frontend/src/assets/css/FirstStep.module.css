@@ -1,0 +1,120 @@
+/* General container styles */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center; /* Center headings, but form elements will be individually aligned */
+}
+
+/* Title and step description */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Ensure the title is centered */
+}
+
+.step {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center; /* Ensure the step is centered */
+}
+
+/* Form group styling */
+.formGroup, .formGroupLeftAligned {
+    margin-bottom: 30px;
+    text-align: left; /* Align form labels and fields to the left */
+}
+
+/* Labels for form elements */
+.label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Gender button group */
+.buttonGroup {
+    display: flex;
+    justify-content: space-between; /* Gender buttons remain horizontally aligned */
+    gap: 20px;
+}
+
+/* Gender button styles */
+.genderButton {
+    flex: 1;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.genderButton:hover {
+    background-color: #e0e0e0;
+}
+
+.selected {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+}
+
+/* Date picker styling */
+.datePicker {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Next button container */
+.buttonContainer {
+    margin-top: 20px;
+    text-align: center; /* Center the Next button */
+}
+
+/* Next button */
+.nextButton {
+    width: 100%; /* Fixed width for consistency */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nextButton:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .genderButton {
+        margin-bottom: 10px;
+    }
+
+    .nextButton {
+        width: 100%; /* Make the button full-width on small screens */
+    }
+}

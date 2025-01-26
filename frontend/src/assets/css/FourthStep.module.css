@@ -1,0 +1,104 @@
+/* General container styles */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title styles */
+.stepTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form group styling */
+.formGroup {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Labels for form elements */
+.label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Input field styling */
+.inputField {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Button group for "Yes" and "No" buttons */
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0px;
+}
+
+/* Navigation buttons */
+.navButton {
+    flex: 1;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.navButton:hover {
+    background-color: #e0e0e0;
+}
+
+.selected {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #0056b3;
+}
+
+/* Navigation button container */
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Previous and Next buttons */
+.previousButton {
+    margin-right: 10px;
+}
+
+.nextButton {
+    margin-left: 10px;
+}
+
+.navButton:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .navButton {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
