@@ -1,0 +1,58 @@
+/* Navbar-specific styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 0; /* Position it at the top of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    max-width: 80%;
+    margin: 0 auto; /* Center the navbar horizontally */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Logo styles */
+.logo {
+    font-weight: bolder;
+    font-size: 24px; /* Adjust size accordingly */
+    color: #000000; /* Color of your logo */
+}
+
+/* Menu styles */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between menu items */
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Menu item styles */
+.menuItem {
+    padding: 10px; /* Padding for clickable area */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Button styles */
+.button {
+    background-color: #2fd9ff; /* Vibrant green background */
+    color: #000000;
+    border: none;
+    border-radius: 15px; /* Rounded corners for the button */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+
+.button:hover {
+    background-color: #13d2fd; /* Darker shade on hover */
+    color: white;
+}

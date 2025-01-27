@@ -1,0 +1,45 @@
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the container spans the full viewport height */
+    background-color: white; /* Light gray background */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Error message styling */
+.error {
+    color: #d9534f; /* Bootstrap danger color */
+    font-weight: bold;
+}
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    max-width: 80%;
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    margin: 0 auto;
+    border: solid black;
+}
+
+.actionButton:hover {
+    background-color: #d4d4d4;
+}
+
+/* Chevron Icon styling */
+.icon {
+    font-size: 40px;
+    color: #000;
+    margin-left: auto; /* Push the icon to the right */
+}
