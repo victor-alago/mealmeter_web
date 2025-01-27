@@ -59,7 +59,7 @@ function SignupForm() {
     <MDBContainer fluid className='my-5' style={{width: '60%'}}>
       <MDBRow className='g-0 align-items-center'>
         <MDBCol col='6'>
-          <MDBCard className='my-5 cascading-right' style={{background: 'hsla(0, 0%, 100%, 0.55)',  backdropFilter: 'blur(30px)'}}>
+          <MDBCard className='my-5 cascading-right' style={{background: 'hsl(0, 0.00%, 100.00%)',  backdropFilter: 'blur(30px)'}}>
             <MDBCardBody className='p-5 shadow-5 text-center'>
               <h2 className="fw-bold mb-5">Sign up now</h2>
               <form onSubmit={handleSignup}>

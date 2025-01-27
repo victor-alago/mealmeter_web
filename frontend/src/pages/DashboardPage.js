@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBRow,
-  MDBCol
-} from 'mdb-react-ui-kit';
+import { FiChevronsRight } from "react-icons/fi"; // Importing Chevron Right Icon
+import styles from '../assets/css/DashboardPage.module.css';
+import NavbarHome from '../components/NavbarHome';
+import useAuth from '../hooks/useAuth';
 
 function DashboardPage() {
+  useAuth();
   const [profile, setProfile] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -32,7 +29,7 @@ function DashboardPage() {
             Authorization: `Bearer ${token}`
           }
         });
-        setProfile(response.data.profile_data);  // Adjusted according to the expected response structure
+        setProfile(response.data.profile_data); // Adjusted according to the expected response structure
         setError(''); // Clear any previous errors
       } catch (error) {
         console.error('Error fetching profile:', error);
@@ -49,27 +46,19 @@ function DashboardPage() {
   };
 
   return (
-    <MDBContainer className="my-5">
-      <MDBRow className="justify-content-center">
-        <MDBCol md="8">
-          <MDBCard>
-            <MDBCardBody className="text-center">
-              <h3>Welcome to Your Dashboard</h3>
-              {isLoading && <p>Loading your profile...</p>}
-              {!isLoading && error && <p className="text-danger">{error}</p>}
-              {!isLoading && profile && !profile.is_setup && (
-                <>
-                  <p className="mb-4">Get the most out of our service by completing your profile setup.</p>
-                  <MDBBtn onClick={handleCompleteSetup} color="info">
-                    Complete Setting Up Your Profile
-                  </MDBBtn>
-                </>
-              )}
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+    <>
+      <NavbarHome />
+      <div className={styles.container}>
+        {isLoading && <p>Loading your profile...</p>}
+        {!isLoading && error && <p className={styles.error}>{error}</p>}
+        {!isLoading && profile && !profile.is_setup && (
+          <button onClick={handleCompleteSetup} className={styles.actionButton}>
+            Complete your profile setup now to unlock personalized meal tracking and tailored nutrition insights
+            <FiChevronsRight className={styles.icon} />
+          </button>
+        )}
+      </div>
+    </>
   );
 }
 
