@@ -6,6 +6,7 @@
     background-color: white; /* Light gray background */
     padding: 20px;
     box-sizing: border-box;
+    font-family: 'Jura', sans-serif;
 }
 
 /* Error message styling */

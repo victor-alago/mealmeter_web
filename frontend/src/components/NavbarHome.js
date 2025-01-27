@@ -1,28 +1,45 @@
-// src/components/NavbarHome.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import styles from '../assets/css/NavbarHome.module.css'; // Import CSS Module
 
 const NavbarHome = () => {
+  const [showSettings, setShowSettings] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear user authentication data (token, user details, etc.)
     localStorage.removeItem('token'); // Assuming token is stored in local storage
-    // Navigate to login or home page
     navigate('/login', { replace: true }); // Replace the current entry in the history stack
-
-    // Optionally, clear state if using Redux/Context or any other state management
-    // dispatch({ type: 'LOGOUT' }); // If using Redux or similar
   };
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>MEALMETER</div>
+      {/* Make the logo a link to the /dashboard */}
+      <Link to="/dashboard" className={styles.logo}>
+        MEALMETER
+      </Link>
       <ul className={styles.menu}>
         <li className={styles.menuItem}>Search</li>
         <li className={styles.menuItem}>Tracking</li>
-        <li className={styles.menuItem}>Setting</li>
+        <li
+          className={`${styles.menuItem} ${showSettings ? styles.active : ''}`} // Add active class dynamically
+          onClick={() => setShowSettings(!showSettings)}
+        >
+          Settings
+          {showSettings && (
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <Link to="/profile" className={styles.dropdownItem}>
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/preferences" className={styles.dropdownItem}>
+                  Preferences
+                </Link>
+              </li>
+            </ul>
+          )}
+        </li>
       </ul>
       <button onClick={handleLogout} className={styles.button}>
         Logout
