@@ -7,26 +7,27 @@
     background-color: white;
     border-radius: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    top: 0; /* Position it at the top of the viewport */
-    z-index: 1000; /* Ensure it's above other content */
+    top: 0;
+    z-index: 1000;
     max-width: 80%;
-    margin: 0 auto; /* Center the navbar horizontally */
+    margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-family: 'Jura', sans-serif;
 }
 
 /* Logo styles */
 .logo {
     font-weight: bolder;
-    font-size: 24px; /* Adjust size accordingly */
-    color: #000000; /* Color of your logo */
+    font-size: 24px;
+    color: #000000;
 }
 
 /* Menu styles */
 .menu {
     list-style: none;
     display: flex;
-    gap: 20px; /* Space between menu items */
+    gap: 20px;
     margin: 0;
     padding: 0;
     font-size: 18px;
@@ -35,16 +36,29 @@
 
 /* Menu item styles */
 .menuItem {
-    padding: 10px; /* Padding for clickable area */
-    cursor: pointer; /* Pointer cursor on hover */
+    position: relative; /* To anchor dropdown (if any) */
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover transition */
+}
+
+.menuItem:hover {
+    color: #40cfff; /* Black text on hover */
+    border-radius: 8px; /* Rounded corners on hover */
+}
+
+/* Active menu item when clicked */
+.active {
+    color: #40cfff; /* White text for active state */
+    border-radius: 8px; /* Ensure rounded corners are applied */
 }
 
 /* Button styles */
 .button {
-    background-color: #2fd9ff; /* Vibrant green background */
+    background-color: #2fd9ff;
     color: #000000;
     border: none;
-    border-radius: 15px; /* Rounded corners for the button */
+    border-radius: 15px;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 18px;
@@ -53,6 +67,38 @@
 }
 
 .button:hover {
-    background-color: #13d2fd; /* Darker shade on hover */
+    background-color: #13d2fd;
     color: white;
+}
+
+/* Dropdown menu below the navbar */
+.dropdownMenu {
+    position: absolute; /* Anchor it relative to the parent .menuItem */
+    top: 100%; /* Place it directly below the parent menu item */
+    left: 0; /* Align it to the left of the parent */
+    background-color: white; /* White background for the dropdown */
+    list-style: none;
+    padding: 10px 0; /* Vertical padding for dropdown items */
+    margin: 0;
+    border-radius: 8px; /* Rounded corners for the dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 999; /* Ensure it appears above other elements */
+    min-width: 180px; /* Consistent dropdown width */
+    border-top: 4px solid #40cfff; /* Pink border on top for styling */
+}
+
+.dropdownItem {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dropdownItem:hover {
+    background-color: #d6d6d6;
+    border-radius: 4px;
+    color: #000000;
 }

@@ -1,0 +1,164 @@
+/* Profile container */
+.profileContainer {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Jura', sans-serif;
+}
+
+/* Profile heading */
+.profileContainer h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #b8b8b8;
+    padding-bottom: 10px;
+}
+
+/* Profile item */
+.profileItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.profileItem:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Label for profile items */
+.profileItem strong {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+/* Input field */
+.inputField {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin-right: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.inputField:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.actionButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    max-width: 90%;
+    color: black; 
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin: 0 auto;
+    border: none; /* Remove solid black border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.actionButton:hover {
+    background-color: #c2c2c2; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift effect on hover */
+}
+
+.editButton {
+    background-color: #ffcc00;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.editButton:hover {
+    background-color: #e6b800;
+}
+
+/* Chevron Icon styling */
+.icon {
+    font-size: 24px;
+    color: #000000;
+    margin-left: auto;
+}
+
+/* Error message */
+.error {
+    color: #ff4d4d;
+    background-color: #ffe6e6;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading message */
+.loading {
+    color: #333;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .profileContainer {
+        padding: 15px;
+    }
+
+    .profileItem {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .inputField {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    .actionButton,
+    .editButton {
+        width: 35px;
+        height: 35px;
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+}
