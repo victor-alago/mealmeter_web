@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mealmeter_web
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    volumes:
+      - ./frontend:/mealmeter_web/frontend # Mount the frontend directory for live development
+    stdin_open: true # Keeps stdin open for interactive debugging
+    tty: true # Enables terminal mode for debugging
