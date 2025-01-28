@@ -18,7 +18,11 @@ const NavbarHome = () => {
         MEALMETER
       </Link>
       <ul className={styles.menu}>
-        <li className={styles.menuItem}>Search</li>
+        <li className={styles.menuItem}>
+          <Link to="/search" className={styles.menuItem}>
+            Search
+          </Link>
+        </li>
         <li className={styles.menuItem}>Tracking</li>
         <li
           className={`${styles.menuItem} ${showSettings ? styles.active : ''}`} // Add active class dynamically
