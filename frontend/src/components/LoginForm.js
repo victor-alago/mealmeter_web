@@ -34,6 +34,7 @@ function LoginForm() {
 
       // Store the token in localStorage
       localStorage.setItem('token', response.data.id_token);
+      localStorage.setItem('email', response.data.email);
 
       // Navigate to the dashboard after successful login and token storage
       navigate('/dashboard'); 
