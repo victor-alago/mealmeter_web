@@ -36,21 +36,29 @@
 
 /* Menu item styles */
 .menuItem {
-    position: relative; /* To anchor dropdown (if any) */
+    position: relative;
+    /* To anchor dropdown (if any) */
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover transition */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    /* Smooth hover transition */
+    color: black;
+    /* Change this to your desired color */
 }
 
 .menuItem:hover {
-    color: #40cfff; /* Black text on hover */
-    border-radius: 8px; /* Rounded corners on hover */
+    color: #40cfff;
+    /* Black text on hover */
+    border-radius: 8px;
+    /* Rounded corners on hover */
 }
 
 /* Active menu item when clicked */
 .active {
-    color: #40cfff; /* White text for active state */
-    border-radius: 8px; /* Ensure rounded corners are applied */
+    color: #40cfff;
+    /* White text for active state */
+    border-radius: 8px;
+    /* Ensure rounded corners are applied */
 }
 
 /* Button styles */
@@ -73,18 +81,28 @@
 
 /* Dropdown menu below the navbar */
 .dropdownMenu {
-    position: absolute; /* Anchor it relative to the parent .menuItem */
-    top: 100%; /* Place it directly below the parent menu item */
-    left: 0; /* Align it to the left of the parent */
-    background-color: white; /* White background for the dropdown */
+    position: absolute;
+    /* Anchor it relative to the parent .menuItem */
+    top: 100%;
+    /* Place it directly below the parent menu item */
+    left: 0;
+    /* Align it to the left of the parent */
+    background-color: white;
+    /* White background for the dropdown */
     list-style: none;
-    padding: 10px 0; /* Vertical padding for dropdown items */
+    padding: 10px 0;
+    /* Vertical padding for dropdown items */
     margin: 0;
-    border-radius: 8px; /* Rounded corners for the dropdown */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 999; /* Ensure it appears above other elements */
-    min-width: 180px; /* Consistent dropdown width */
-    border-top: 4px solid #40cfff; /* Pink border on top for styling */
+    border-radius: 8px;
+    /* Rounded corners for the dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    z-index: 999;
+    /* Ensure it appears above other elements */
+    min-width: 180px;
+    /* Consistent dropdown width */
+    border-top: 4px solid #40cfff;
+    /* Pink border on top for styling */
 }
 
 .dropdownItem {
