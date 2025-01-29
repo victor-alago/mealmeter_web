@@ -5,6 +5,7 @@ import { FiChevronsRight } from "react-icons/fi"; // Importing Chevron Right Ico
 import styles from '../assets/css/DashboardPage.module.css';
 import NavbarHome from '../components/NavbarHome';
 import useAuth from '../hooks/useAuth';
+import Calendar from '../components/Calendar';
 
 function DashboardPage() {
   useAuth();
@@ -47,7 +48,10 @@ function DashboardPage() {
 
   return (
     <>
-      <NavbarHome />
+      <div className="parentContainer">
+        <NavbarHome />
+        <Calendar />
+      </div>
       <div className={styles.container}>
         {isLoading && <p>Loading your profile...</p>}
         {!isLoading && error && <p className={styles.error}>{error}</p>}
