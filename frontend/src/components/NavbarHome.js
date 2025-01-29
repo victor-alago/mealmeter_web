@@ -23,6 +23,11 @@ const NavbarHome = () => {
             Search
           </Link>
         </li>
+        <li className={styles.menuItem}>
+          <Link to="/log-food" className={styles.menuItem}>
+            Log Food
+          </Link>
+        </li>
         <li className={styles.menuItem}>Tracking</li>
         <li
           className={`${styles.menuItem} ${showSettings ? styles.active : ''}`} // Add active class dynamically
