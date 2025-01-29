@@ -3,7 +3,13 @@ import styles from "../assets/css/FourthStep.module.css";
 
 function FourthStep({ formData, setFormData, handleNext, handleBack }) {
     const handleInputChange = (field, value) => {
-        // Validate the input for a list of strings separated by commas
+        if (!value.trim()) {
+            setFormData({
+                ...formData,
+                [field]: []  // Set empty array if input is empty
+            });
+            return;
+        }
         const isValidInput = value.split(',').every(item => /^[a-zA-Z\s]*$/.test(item.trim()));
         if (!isValidInput) {
             alert('Please enter valid inputs separated by commas. Only alphabetic characters and spaces are allowed.');

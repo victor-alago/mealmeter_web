@@ -33,7 +33,21 @@
     font-weight: 500;
     color: #333;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-align: center;
 }
+
+.emailItem {
+    display: flex;
+    align-items: center; /* Ensure vertical alignment to the center */
+    justify-content: center; /* Center content horizontally */
+    width: 100%; /* Take full width to center content properly */
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
 
 .profileItem:hover {
     background-color: #f1f1f1;
