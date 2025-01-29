@@ -1,0 +1,194 @@
+.parentContainer {
+    display: block; /* Change to block layout */
+    width: 100%; /* Take full width of the screen */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.messageContainer {
+    background: linear-gradient(135deg, #2fd9ff, #a2d9ff); /* Gradient background */
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px; /* Larger padding for better emphasis */
+    margin-bottom: 30px; /* Add space below the message */
+    text-align: center; /* Center-align the text */
+    color: #fff; /* White text */
+    font-family: 'Jura', sans-serif;
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: 500;
+    line-height: 1.8;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative circles */
+  .messageContainer::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .messageContainer::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .messageContainer p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+  }
+
+.calendarContainer {
+    flex: 1;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: relative;
+    min-width: 300px; /* Minimum width to ensure layout does not break on smaller screens */
+}
+
+.monthHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures navigation buttons are spaced out */
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0 70px; /* Padding adjusted for better alignment */
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #757575;
+    padding: 0 10px;
+}
+
+.header, .body {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0; /* Add some padding to top and bottom for spacing */
+}
+
+.dayHeader {
+    font-weight: bolder;
+}
+
+.dayHeader, .day {
+    flex: 1;
+    text-align: center;
+}
+
+.day {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.day:hover {
+    color: #ff7272;
+}
+
+.currentDay {
+    color: #ff3636;
+    border-radius: 50%;
+    padding: 10px 0;
+    font-weight: 900;
+}
+
+
+.calorieProgressContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.636);
+    padding: 20px;
+    margin-top: 40px;
+    width: 40%;
+    flex-direction: row;
+    margin-left: 70px;
+}
+  
+.caloriesInfo {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+.caloriesInfo p {
+    margin: 2px 0;
+    font-size: 16px;
+}
+  
+.goalInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  
+.goalInfo div {
+    display: flex;
+    flex-direction: column;
+}
+  
+.icon {
+    margin-right: 5px; /* Ensure spacing between icon and text */
+}
+
+.divider {
+    width: 90%; /* Adjust the width to your preference */
+    border: 0;
+    height: 2px;
+    background-color: #6d6d6d;
+    margin: 20px auto; /* 'auto' for horizontal margins centers the element */
+}
+
+.lockOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 10; /* Make sure it covers other content */
+}
