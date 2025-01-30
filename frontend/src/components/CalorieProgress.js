@@ -11,7 +11,7 @@ function CalorieProgress({ totalCalories, targetCalories }) {
 
   return (
     <div className={styles.calorieProgressContainer}>
-      <div style={{ width: 250, height: 250, margin: '0 auto' }}>
+      <div className={styles.progressBarContainer}>
         <CircularProgressbarWithChildren
           value={percentage}
           styles={buildStyles({
@@ -24,7 +24,7 @@ function CalorieProgress({ totalCalories, targetCalories }) {
           <div style={{ fontSize: '40px', marginTop: '-5px' }}>
             <strong>{remainingCalories}</strong>
           </div>
-          <div style={{ fontSize: '25px', color: '#666' }}>
+          <div style={{ fontSize: '20px', color: '#666' }}>
             remaining
           </div>
         </CircularProgressbarWithChildren>
