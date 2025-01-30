@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   MDBBtn,
   MDBContainer,
@@ -20,6 +20,7 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');  // State to store the message
   const [messageType, setMessageType] = useState('');  // State to determine the message type (error or success)
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -35,9 +36,14 @@ function SignupForm() {
             email,
             password
         });
-        setMessage('Signup successful, please check your email to verify your account.');
+        setMessage('Signup successful, please check your email to verify your account. Redirecting to login page...');
         setMessageType('success');
-        console.log(response.data); // Use this response for further actions, like redirecting
+        console.log(response.data);
+        // Redirect to login page after 2 seconds
+        setTimeout(() => {
+            navigate('/login');
+        }, 2000);
+
     } catch (error) {
         if (error.response) {
             console.error("Error data:", error.response.data);

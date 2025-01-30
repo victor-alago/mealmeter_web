@@ -12,6 +12,14 @@ const LogFoodPage = () => {
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState('');
 
+    const clearForm = () => {
+        setFoodName('');
+        setMealType('breakfast');
+        setCalories('');
+        setServingSize('');
+        setDate(new Date().toISOString().split('T')[0]);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -35,6 +43,14 @@ const LogFoodPage = () => {
 
             setMessage(response.data.message);
             setMessageType('success');
+            clearForm(); // Clear the form after successful submission
+
+            // Clear the success message after 3 seconds
+            setTimeout(() => {
+                setMessage('');
+                setMessageType('');
+            }, 3000);
+
         } catch (error) {
             console.error('Failed to log food entry:', error);
             setMessage('Failed to log food entry');
