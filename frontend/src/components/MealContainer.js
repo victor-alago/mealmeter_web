@@ -1,24 +1,55 @@
-import React from 'react';
-import styles from '../assets/css/Calendar.module.css'; // Make sure to create this CSS file and import it
+import React, { useState } from 'react';
+import styles from '../assets/css/Calendar.module.css';
+import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 
 const MealContainer = ({ meals }) => {
-  // Get the meal types (keys of the meals object)
-  const mealTypes = Object.keys(meals);
+    const [openMeal, setOpenMeal] = useState('');
 
-  return (
-    <div className={styles.mealContainer}>
-      {mealTypes.map((mealType) => {
-        // Calculate total calories for each meal type
-        const totalMealCalories = meals[mealType].reduce((sum, item) => sum + item.calories, 0);
-        return (
-          <div key={mealType} className={styles.mealCard}>
-            <h3>{mealType.charAt(0).toUpperCase() + mealType.slice(1)}</h3> {/* Capitalize the meal type */}
-            <p>{totalMealCalories} kcal</p> {/* Display total calories */}
-          </div>
-        );
-      })}
-    </div>
-  );
+    const toggleMeal = (mealType) => {
+        setOpenMeal(openMeal === mealType ? '' : mealType);
+    };
+
+    // Map meal types to specific card classes
+    const mealCardClasses = {
+        breakfast: styles.breakfastCard,
+        lunch: styles.lunchCard,
+        dinner: styles.dinnerCard,
+        snacks: styles.snacksCard,
+        drinks: styles.drinksCard,
+    };
+
+    return (
+        <div className={styles.mealContainer}>
+            {Object.keys(meals).map((mealType) => {
+                const isMealOpen = openMeal === mealType;
+                const totalMealCalories = meals[mealType].reduce((sum, item) => sum + item.calories, 0);
+
+                return (
+                    <div
+                        key={mealType}
+                        className={`${styles.mealCard} ${mealCardClasses[mealType]}`}
+                        onClick={() => toggleMeal(mealType)}
+                    >
+                        <div className={styles.mealHeader}>
+                            <h3>{mealType.charAt(0).toUpperCase() + mealType.slice(1)}</h3>
+                            <p>{totalMealCalories} kcal</p>
+                            {isMealOpen ? <FiChevronUp /> : <FiChevronDown />}
+                        </div>
+                        {isMealOpen && (
+                            <div className={styles.mealDetails}>
+                                {meals[mealType].map((food, index) => (
+                                    <div key={index} className={styles.foodEntry}>
+                                        <span>{food.food_name} - {food.calories} kcal</span>
+                                        <span>Serving size: {food.serving_size}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+        </div>
+    );
 };
 
 export default MealContainer;
