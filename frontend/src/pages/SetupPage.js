@@ -40,12 +40,7 @@ function SetupPage() {
                 canProceed = formData.activity_level && formData.goal;
                 break;
             case 4:
-                canProceed = formData.diet_type && ( // Simplified the checks
-                    formData.food_preferences.length > 0 ||
-                    formData.allergies.length > 0 ||
-                    formData.medical_conditions.length > 0 ||
-                    formData.medications.length > 0
-                );
+                canProceed = formData.diet_type 
                 break;
             default:
                 canProceed = false;
