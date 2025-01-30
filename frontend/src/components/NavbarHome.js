@@ -28,7 +28,6 @@ const NavbarHome = () => {
             Log Food
           </Link>
         </li>
-        <li className={styles.menuItem}>Tracking</li>
         <li
           className={`${styles.menuItem} ${showSettings ? styles.active : ''}`} // Add active class dynamically
           onClick={() => setShowSettings(!showSettings)}
