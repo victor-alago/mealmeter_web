@@ -8,6 +8,7 @@ import SetupPage from "./pages/SetupPage";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import LogFoodPage from "./pages/LogFoodPage";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (

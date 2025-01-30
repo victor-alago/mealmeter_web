@@ -6,6 +6,7 @@ import styles from '../assets/css/DashboardPage.module.css';
 import NavbarHome from '../components/NavbarHome';
 import useAuth from '../hooks/useAuth';
 import Calendar from '../components/Calendar';
+import Footer from '../components/Footer';
 
 function DashboardPage() {
   useAuth();
@@ -61,7 +62,12 @@ function DashboardPage() {
             <FiChevronsRight className={styles.icon} />
           </button>
         )}
+        <br />
+        <div>
+          <Footer />
+        </div>
       </div>
+      
     </>
   );
 }

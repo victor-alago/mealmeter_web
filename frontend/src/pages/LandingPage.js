@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import NavbarLanding from '../components/NavbarLanding';
 import '../assets/css/LandingPage.css';
+import Footer from '../components/Footer';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -38,6 +39,10 @@ const LandingPage = () => {
           <div className="image-section">
             <img src={require("../assets/iphone.webp")} alt="Phone" />
           </div>
+        </div>
+        <br />
+        <div>
+          <Footer />
         </div>
       </div>
     );
