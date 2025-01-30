@@ -162,34 +162,34 @@
 }
 
 .mealContainer {
-    flex: 1; /* Take up equal space with the calorieProgress */
-    max-width: 50%; /* Restrict width to 50% */
+    flex: 1;
     display: flex;
-    flex-direction: column; /* Stack meal cards vertically */
-    justify-content: space-between; /* Distribute meal cards evenly */
-    background: #fff; /* White background */
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start to manage spacing manually */
     padding: 20px;
-    height: 400px; /* Set fixed height */
-    box-sizing: border-box; /* Ensure padding doesn't affect height */
-    overflow: hidden; /* Prevent content overflow */
+    border-radius: 20px;
+    background: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Important for absolute positioning of children */
+    overflow: hidden; /* Hides anything outside the boundary */
 }
 
 .mealCard {
-    flex: 1; /* Ensure meal cards stretch equally */
-    margin-bottom: 10px; /* Space between cards */
-    padding: 10px 15px; /* Add horizontal padding for better alignment */
-    background: #e3f2fd; /* Light blue background for meal cards */
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Align text to the left */
-    font-size: 1rem; /* Reduce font size for smaller text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-    overflow: hidden; /* Prevent overflow of text */
+    align-items: flex-start;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mealCard:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .mealCard:last-child {
@@ -197,16 +197,45 @@
 }
 
 .mealCard h3 {
-    margin: 0; /* Remove margin from the heading */
-    font-size: 1.2rem; /* Slightly larger font for meal type heading */
-    font-weight: b;
-    color: #333; /* Darker color for the heading */
+    margin: 0 0 5px 0; /* Add spacing below the heading */
+    font-size: 1.2rem; /* Larger font size for the meal type */
+    font-weight: bold; /* Emphasize meal type */
+    color: #333; /* Darker color for better contrast */
 }
 
 .mealCard p {
-    margin: 5px 0 0; /* Add some space above the calorie text */
-    font-size: 0.9rem; /* Smaller font size for calorie text */
-    color: #666; /* Lighter color for calorie text */
+    margin: 0; /* Remove extra spacing */
+    font-size: 1rem; /* Smaller font for kcal */
+    color: #666; /* Lighter color for kcal text */
+    text-align: left; /* Align kcal text to the left */
+}
+
+.mealHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+}
+
+.mealDetails {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.foodEntry {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.foodEntry:last-child {
+    border-bottom: none;
 }
 
 .caloriesInfo {
@@ -232,23 +261,22 @@
     gap: 10px; /* Space between icons and text */
     margin-bottom: 5px; /* Slightly reduce spacing between goal info sections */
 }
-  
+
 .goalInfo div {
     display: flex;
     flex-direction: column;
 }
-
   
 .icon {
     margin-right: 5px; /* Ensure spacing between icon and text */
 }
 
 .divider {
-    width: 90%; /* Adjust the width to your preference */
+    width: 90%;
     border: 0;
     height: 2px;
     background-color: #6d6d6d;
-    margin: 20px auto; /* 'auto' for horizontal margins centers the element */
+    margin: 20px auto; 
 }
 
 .lockOverlay {
@@ -265,4 +293,29 @@
     color: white;
     text-align: center;
     z-index: 10; /* Make sure it covers other content */
+}
+
+.breakfastCard {
+    background: linear-gradient(135deg, #FFEBB7, #FFD580); /* Light Yellow to Orange */
+    color: #775500;
+}
+
+.lunchCard {
+    background: linear-gradient(135deg, #B7DFFF, #80C7FF); /* Light Blue to Sky Blue */
+    color: #003366;
+}
+
+.dinnerCard {
+    background: linear-gradient(135deg, #D1B7FF, #A580FF); /* Light Purple to Violet */
+    color: #4B0082;
+}
+
+.snacksCard {
+    background: linear-gradient(135deg, #B7FFD1, #80FFAA); /* Light Green to Mint Green */
+    color: #004D26;
+}
+
+.drinksCard {
+    background: linear-gradient(135deg, #FFB7D1, #FF80AA); /* Light Pink to Rose Pink */
+    color: #660033;
 }
