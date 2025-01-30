@@ -15,6 +15,9 @@ const Calendar = ({ profileComplete }) => {
   const [targetCalories, setTargetCalories] = useState(2000);
   const [isLocked, setIsLocked] = useState(false);
   const [isLockedSetup, setIsLockedSetup] = useState(!profileComplete)
+  const [proteinGrams, setProteinGrams] = useState(0);
+  const [carbsGrams, setCarbsGrams] = useState(0);
+  const [fatsGrams, setFatsGrams] = useState(0);
   const [meals, setMeals] = useState({
     breakfast: [],
     lunch: [],
@@ -80,14 +83,39 @@ const Calendar = ({ profileComplete }) => {
     };
 
     fetchCalories();
-  }, [currentDate]); // Fetch calories whenever the current date changes
+  }, [currentDate]);
+
+
+  useEffect(() => {
+    const fetchMacros = async () => {
+        try {
+          const response = await axios.get("http://localhost:8000/insights/nutrition", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+          const { protein_grams, carbs_grams, fats_grams } = response.data;
+          setProteinGrams(protein_grams);
+          setCarbsGrams(carbs_grams);
+          setFatsGrams(fats_grams);
+        } catch (error) {
+          console.error('Failed to fetch calorie data:', error);
+        }
+    };
+
+    fetchMacros();
+  });
 
   return (
     <div className={styles.parentContainer}>
         <div className={styles.messageContainer}>
             <p>Every meal is a step towards your health goals. Fuel up and stay fit with MealMeter, supporting your active lifestyle every day!</p>
         </div>
+
         <div className={styles.calendarContainer}>
+            <h1 className={styles.trackerHeader}>
+                Daily Tracker
+            </h1>
             <div className={styles.monthHeader}>
                 {monthNames[currentMonth]} {currentYear}
                 <div className={styles.navigation}>
@@ -127,6 +155,30 @@ const Calendar = ({ profileComplete }) => {
                     <CalorieProgress totalCalories={totalCalories} targetCalories={targetCalories} />
                 </div>
                 <MealContainer meals={meals} />
+            </div>
+        </div>
+
+        <div className={styles.insightsContainer}>
+            <h1 className={styles.insightsHeader}>
+                Insights
+            </h1>
+            <h3 className={styles.insightsSubheader}>
+                Keep up the great work! Remember to consume these daily nutritional targets to stay on track
+                with your health goals.
+            </h3>
+            <div className={styles.macrosContainer}>
+                <div className={styles.macroItem} style={{ borderRadius: '10px', backgroundColor: '#f4f4f4' }}>
+                    <h3>Protein</h3>
+                    <p>{proteinGrams} g</p>
+                </div>
+                <div className={styles.macroItem} style={{ borderRadius: '10px', backgroundColor: '#f4f4f4' }}>
+                    <h3>Carbs</h3>
+                    <p>{carbsGrams} g</p>
+                </div>
+                <div className={styles.macroItem} style={{ borderRadius: '10px', backgroundColor: '#f4f4f4' }}>
+                    <h3>Fats</h3>
+                    <p>{fatsGrams} g</p>
+                </div>
             </div>
         </div>
     </div>
