@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../assets/css/Calendar.module.css';
 import { FiChevronLeft, FiChevronRight, FiLock } from "react-icons/fi"; // Importing Chevron Icons for navigation
 import CalorieProgress from './CalorieProgress';
+import MealContainer from './MealContainer';
 import axios from 'axios'; 
 
 const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -13,6 +14,13 @@ const Calendar = () => {
   const [totalCalories, setTotalCalories] = useState(0);
   const [targetCalories, setTargetCalories] = useState(2000);
   const [isLocked, setIsLocked] = useState(false);
+  const [meals, setMeals] = useState({
+    breakfast: [],
+    lunch: [],
+    dinner: [],
+    snacks: [],
+    drinks: []
+  });
 
   const currentMonth = baseDate.getMonth();
   const currentYear = baseDate.getFullYear();
@@ -50,19 +58,20 @@ const Calendar = () => {
 
   useEffect(() => {
     const fetchCalories = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8000/food-log/daily/${currentDate.toISOString().split('T')[0]}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+        try {
+          const response = await axios.get(`http://localhost:8000/food-log/daily/${currentDate.toISOString().split('T')[0]}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+          if (response.data) {
+            setTotalCalories(response.data.total_calories);
+            setTargetCalories(response.data.target_calories);
+            setMeals(response.data.meals); // Set the meals data
           }
-        });
-        if (response.data) {
-          setTotalCalories(response.data.total_calories);
-          setTargetCalories(response.data.target_calories);
+        } catch (error) {
+          console.error('Failed to fetch calorie data:', error);
         }
-      } catch (error) {
-        console.error('Failed to fetch calorie data:', error);
-      }
     };
 
     fetchCalories();
@@ -102,8 +111,11 @@ const Calendar = () => {
                 </div>
             )}
             <hr className={styles.divider} />
-            <div className={styles.calorieProgress}>
-                <CalorieProgress totalCalories={totalCalories} targetCalories={targetCalories} />
+            <div className={styles.progressAndMeals}>
+                <div className={styles.calorieProgress}>
+                    <CalorieProgress totalCalories={totalCalories} targetCalories={targetCalories} />
+                </div>
+                <MealContainer meals={meals} />
             </div>
         </div>
     </div>
