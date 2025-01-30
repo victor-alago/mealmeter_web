@@ -7,13 +7,14 @@ import axios from 'axios';
 
 const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
-const Calendar = () => {
+const Calendar = ({ profileComplete }) => {
   const today = new Date();
   const [currentDate, setCurrentDate] = useState(today);
   const [baseDate, setBaseDate] = useState(today);
   const [totalCalories, setTotalCalories] = useState(0);
   const [targetCalories, setTargetCalories] = useState(2000);
   const [isLocked, setIsLocked] = useState(false);
+  const [isLockedSetup, setIsLockedSetup] = useState(!profileComplete)
   const [meals, setMeals] = useState({
     breakfast: [],
     lunch: [],
@@ -21,6 +22,10 @@ const Calendar = () => {
     snacks: [],
     drinks: []
   });
+
+  useEffect(() => {
+    setIsLockedSetup(!profileComplete);
+  }, [profileComplete]); 
 
   const currentMonth = baseDate.getMonth();
   const currentYear = baseDate.getFullYear();
@@ -108,6 +113,12 @@ const Calendar = () => {
                 <div className={styles.lockOverlay}>
                     <FiLock size={50} color="#aaa" />
                     <p>Date selection locked for future dates.</p>
+                </div>
+            )}
+            {isLockedSetup && (
+                <div className={styles.lockOverlay}>
+                    <FiLock size={50} color="#aaa" />
+                    <p>Complete your profile to unlock this feature.</p>
                 </div>
             )}
             <hr className={styles.divider} />

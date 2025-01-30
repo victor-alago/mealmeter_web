@@ -47,27 +47,28 @@ function DashboardPage() {
     navigate('/setup');
   };
 
+  const profileComplete = profile && profile.is_setup;
+
   return (
     <>
       <div className="parentContainer">
         <NavbarHome />
-        <Calendar />
+          <div className={styles.container}>
+            {isLoading && <p>Loading your profile...</p>}
+            {!isLoading && error && <p className={styles.error}>{error}</p>}
+            {!isLoading && profile && !profile.is_setup && (
+              <button onClick={handleCompleteSetup} className={styles.actionButton}>
+                Complete your profile setup now to unlock personalized meal tracking and tailored nutrition insights
+                <FiChevronsRight className={styles.icon} />
+              </button>
+            )}
+            <br />
+          </div>
+        <Calendar profileComplete={profileComplete} />
       </div>
-      <div className={styles.container}>
-        {isLoading && <p>Loading your profile...</p>}
-        {!isLoading && error && <p className={styles.error}>{error}</p>}
-        {!isLoading && profile && !profile.is_setup && (
-          <button onClick={handleCompleteSetup} className={styles.actionButton}>
-            Complete your profile setup now to unlock personalized meal tracking and tailored nutrition insights
-            <FiChevronsRight className={styles.icon} />
-          </button>
-        )}
-        <br />
-        <div>
+      <div>
           <Footer />
-        </div>
       </div>
-      
     </>
   );
 }

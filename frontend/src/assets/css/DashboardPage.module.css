@@ -1,10 +1,18 @@
-/* Container styling */
+/* Parent Container: Ensure proper layout */
+.parentContainer {
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any padding */
+    background-color: #f9f9f9; /* Add a light background if needed */
+}
+
+/* Main container for content */
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 75vh; /* Ensure the container spans the full viewport height */
-    background-color: white; /* Light gray background */
-    padding: 20px;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    padding: 0px;
+    background-color: white; /* Background color */
     box-sizing: border-box;
     font-family: 'Jura', sans-serif;
 }
@@ -15,9 +23,11 @@
     font-weight: bold;
 }
 
+/* Action Button styling */
 .actionButton {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 50px;
     width: 100%;
     max-width: 80%;
@@ -30,7 +40,7 @@
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease-in-out;
-    margin: 0 auto;
+    margin: 20px auto; /* Add spacing below */
     border: solid black;
 }
 
@@ -43,4 +53,14 @@
     font-size: 40px;
     color: #000;
     margin-left: auto; /* Push the icon to the right */
+}
+
+/* Calendar Styling: Reset margins and padding */
+.calendarContainer {
+    width: 100%;
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+    display: flex;
+    justify-content: center; /* Center the calendar horizontally */
+    align-items: flex-start; /* Align calendar to the top */
 }
