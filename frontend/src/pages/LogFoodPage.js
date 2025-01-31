@@ -92,10 +92,14 @@ const LogFoodPage = () => {
                     </div>
                     <button type="submit" className={styles.submitButton}>Log</button>
                 </form>
-                {message && <p className={messageType === 'error' ? styles.errorMessage : styles.successMessage}>{message}</p>}
+                {message && (
+                    <div className={`${styles.toastMessage} ${messageType === 'error' ? styles.error : styles.success}`}>
+                        {message}
+                    </div>
+                )}
             </div>
         </>
     );
 };
 
-export default LogFoodPage; 
+export default LogFoodPage;
