@@ -7,6 +7,7 @@ import NavbarHome from '../components/NavbarHome';
 import useAuth from '../hooks/useAuth';
 import Calendar from '../components/Calendar';
 import Footer from '../components/Footer';
+import ChatBot from '../components/ChatBot';
 
 function DashboardPage() {
   useAuth();
@@ -68,6 +69,7 @@ function DashboardPage() {
       </div>
       <div>
           <Footer />
+          <ChatBot />
       </div>
     </>
   );

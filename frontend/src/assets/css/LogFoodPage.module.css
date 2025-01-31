@@ -1,24 +1,39 @@
+/* Container */
 .container {
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 600px;
+    margin: 40px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background: #fff;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     font-family: 'Jura', sans-serif;
 }
 
+/* Title */
 .title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     margin-bottom: 20px;
-    color: #333;
+    color: #555;
+    position: relative;
 }
 
+.title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Form */
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .formGroup {
@@ -27,39 +42,92 @@
     gap: 5px;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.formGroup label {
     font-size: 1rem;
+    font-weight: 500;
+    color: #333;
 }
 
-.submitButton {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.formGroup input,
+.formGroup select {
+    padding: 12px;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.2);
+}
+
+/* Button */
+.submitButton {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .submitButton:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
 }
 
-.errorMessage {
-    color: #d9534f;
+/* Toast Message */
+.toastMessage {
     text-align: center;
-    font-weight: bold;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-.successMessage {
-    color: #5cb85c;
-    text-align: center;
-    font-weight: bold;
+.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Styled select element */
+.formGroup select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #6a11cb; /* Use a bold border color */
+    border-radius: 8px; /* Rounded corners */
+    outline: none;
+    background: linear-gradient(135deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
+    color: #333; /* Text color */
+    transition: all 0.3s ease;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%236a11cb' d='M2 0L0 2h4z'/%3E%3C/svg%3E"); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position custom arrow */
+    background-size: 10px;
+}
+
+/* On focus */
+.formGroup select:focus {
+    border-color: #2575fc; /* Highlight border on focus */
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.2); /* Subtle shadow on focus */
+}
+
+/* Add hover effect */
+.formGroup select:hover {
+    background: linear-gradient(135deg, #e6e6e6, #f9f9f9); /* Swap gradient on hover */
 }
